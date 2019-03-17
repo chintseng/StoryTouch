@@ -10,8 +10,27 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Navigation } from "react-native-navigation";
 
 export default class App extends Component {
+  onOpenCamera() {
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: 'navigation.storyTouch.CameraScreen',
+        passProps: {
+          text: 'Pushed screen'
+        },
+        options: {
+          topBar: {
+            title: {
+              text: 'Camera'
+            }
+          }
+        }
+      }
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -32,7 +51,7 @@ export default class App extends Component {
           buttonStyle={{
             paddingRight: 15
           }}
-          onPress={() => console.log("hello oo")}
+          onPress={() => this.onOpenCamera()}
         />
       </View>
     );

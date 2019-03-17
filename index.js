@@ -4,20 +4,47 @@
  */
 
 import React from 'react';
-import { AppRegistry } from 'react-native';
+import { Navigation } from "react-native-navigation";
+import App from "./App";
+import STCamera from "./STCamera";
 import { Provider } from 'react-redux';
-import App from './App';
 import configureStore from './src/store/configureStore';
-import { name as appName } from './app.json';
 
 const store = configureStore();
-console.disableYellowBox = true;
 
-const RNRedux = () => (
+Navigation.registerComponent(`navigation.storyTouch.WelcomeScreen`, () => (props) => (
   <Provider store={store}>
-    <App />
+    <App {...props}/>
   </Provider>
-);
+), () => App);
+Navigation.registerComponent(`navigation.storyTouch.CameraScreen`, () => (props) => (
+  <Provider store={store}>
+    <STCamera {...props}/>
+  </Provider>
+), () => STCamera);
 
-AppRegistry.registerComponent(appName, () => RNRedux);
-
+console.disableYellowBox = true;
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      stack: {
+          id: 'Stack',
+          children: [
+              {
+                component: {
+                    name: "navigation.storyTouch.WelcomeScreen",
+                    options: {
+                        topBar: {
+                            title: {
+                                text: 'StoryTouch'
+                            }
+                        }
+                    }
+                }
+              },
+          ]
+      }
+      
+    }
+  });
+});
