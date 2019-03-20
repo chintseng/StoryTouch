@@ -6,28 +6,29 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import { Button } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Navigation } from "react-native-navigation";
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button, Icon } from 'react-native-elements';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+import { Navigation } from 'react-native-navigation';
+import DefaultButton from './src/components/DefaultButton';
 
 export default class App extends Component {
-  onOpenCamera() {
+  onOpenCamera = () => {
     Navigation.push(this.props.componentId, {
       component: {
         name: 'navigation.storyTouch.CameraScreen',
         passProps: {
-          text: 'Pushed screen'
+          text: 'Pushed screen',
         },
         options: {
           topBar: {
             title: {
-              text: 'Camera'
-            }
-          }
-        }
-      }
+              text: 'Camera',
+            },
+          },
+        },
+      },
     });
   }
 
@@ -36,23 +37,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to StoryTouch!</Text>
         <Text style={styles.instructions}>To get started, click button</Text>
-        <Button
-          icon={
-            <Icon
-              name="camera"
-              size={15}
-              color="white"
-              style={{
-                margin: 10
-              }}
-            />
-          }
-          title="Camera"
-          buttonStyle={{
-            paddingRight: 15
-          }}
-          onPress={() => this.onOpenCamera()}
-        />
+        <DefaultButton icon="camera" onPress={this.onOpenCamera}>Camera</DefaultButton>
       </View>
     );
   }
