@@ -6,18 +6,18 @@
 import React from 'react';
 import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';
-import App from './App';
 import CameraScreen from './src/screens/CameraScreen';
 import PreviewScreen from './src/screens/PreviewScreen';
 import configureStore from './src/store/configureStore';
+import WelcomeScreen from './src/screens/WelcomeScreen';
 
 const store = configureStore();
 
 Navigation.registerComponent('navigation.storyTouch.WelcomeScreen', () => props => (
   <Provider store={store}>
-    <App {...props} />
+    <WelcomeScreen {...props} />
   </Provider>
-), () => App);
+), () => WelcomeScreen);
 Navigation.registerComponent('navigation.storyTouch.CameraScreen', () => props => (
   <Provider store={store}>
     <CameraScreen {...props} />

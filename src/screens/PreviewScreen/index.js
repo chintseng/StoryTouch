@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Image, TouchableOpacity, Dimensions, Text } from 'react-native';
+import { View, Image, TouchableWithoutFeedback, Dimensions, Text } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import { uploadImage, getStory } from '../../store/actions/story';
 import DefaultButton from '../../components/DefaultButton';
+import styles from './styles';
 
 class Preview extends Component {
   state = {
@@ -47,13 +48,13 @@ class Preview extends Component {
     const { caption, submitted } = this.props;
     const content = submitted ? (
       <View>
-        <TouchableOpacity onPress={this.handleImagePress}>
+        <TouchableWithoutFeedback onPress={this.handleImagePress}>
           <Image
             style={{ width: this.state.width, height: this.state.height }}
             resizeMode="contain"
             source={{ uri: this.props.previewUri }}
           />
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
         <Text>{caption}</Text>
       </View>
     ) : (
@@ -73,15 +74,6 @@ class Preview extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
 
 Preview.defaultProps = {
   submitted: false,
