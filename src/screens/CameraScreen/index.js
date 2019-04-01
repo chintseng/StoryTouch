@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { RNCamera } from 'react-native-camera';
 import { Navigation } from 'react-native-navigation';
+import styles from './styles';
 
 export default class CameraScreen extends Component {
   onOpenPreviewScreen = (uri) => {
@@ -26,7 +28,6 @@ export default class CameraScreen extends Component {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options);
-      console.log(data.uri);
       this.onOpenPreviewScreen(data.uri);
     }
   };
@@ -57,24 +58,7 @@ export default class CameraScreen extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: 'black',
-  },
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
-    alignSelf: 'center',
-    margin: 20,
-  },
-});
+CameraScreen.propTypes = {
+  componentId: PropTypes.string.isRequired,
+};
+

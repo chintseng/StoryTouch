@@ -51,6 +51,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		897170A3132148C1BD99223D /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FFC5634B74447949459FE0D /* Zocial.ttf */; };
 		94CB84BC86064019A93134C1 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9046A6754A6C4E91BC2B3F1D /* FontAwesome5_Regular.ttf */; };
+		A134813F224FD12200AC3FEE /* libRNSketchCanvas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A134813E224FD02700AC3FEE /* libRNSketchCanvas.a */; };
 		A2AB945897DD49899A5D1383 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBB2E78FB3624BC2846727EE /* EvilIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		BBB011C5A2B14B74B1DF7CBD /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0B10902A9CD40D29EEB48CF /* Foundation.ttf */; };
@@ -363,6 +364,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		A134813D224FD02700AC3FEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B2A935898B746CFA29BCEA8 /* RNSketchCanvas.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DEFBA2581F322B6000A4545C;
+			remoteInfo = RNSketchCanvas;
+		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -382,6 +390,7 @@
 		00E356EE1AD99517003FC87E /* StoryTouchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoryTouchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* StoryTouchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryTouchTests.m; sourceTree = "<group>"; };
+		021CFE157F6A42EC866EA9C4 /* libRNSketchCanvas.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSketchCanvas.a; sourceTree = "<group>"; };
 		028BCAD127784040A4194FF5 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; };
 		1117D331480243798B56D130 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -410,6 +419,7 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9046A6754A6C4E91BC2B3F1D /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		9B2A935898B746CFA29BCEA8 /* RNSketchCanvas.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSketchCanvas.xcodeproj; path = "../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/RNSketchCanvas.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		BE5510CD172743EE8B255572 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		C8449F6C07E34F87BB02DAC9 /* RNCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
@@ -437,6 +447,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A134813F224FD12200AC3FEE /* libRNSketchCanvas.a in Frameworks */,
 				4403F35B223DAD730026EAF2 /* libReactNativeNavigation.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -647,6 +658,7 @@
 				BE5510CD172743EE8B255572 /* libRNVectorIcons.a */,
 				028BCAD127784040A4194FF5 /* libRNVectorIcons-tvOS.a */,
 				23B021B8A50E40C597997C9D /* libRNCamera.a */,
+				021CFE157F6A42EC866EA9C4 /* libRNSketchCanvas.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -704,6 +716,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				1117D331480243798B56D130 /* RNVectorIcons.xcodeproj */,
 				C8449F6C07E34F87BB02DAC9 /* RNCamera.xcodeproj */,
+				9B2A935898B746CFA29BCEA8 /* RNSketchCanvas.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -740,6 +753,14 @@
 				00E356EE1AD99517003FC87E /* StoryTouchTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* StoryTouch-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* StoryTouch-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A134813A224FD02600AC3FEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A134813E224FD02700AC3FEE /* libRNSketchCanvas.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -923,6 +944,10 @@
 				{
 					ProductGroup = 4403F3D0223DCF300026EAF2 /* Products */;
 					ProjectRef = C8449F6C07E34F87BB02DAC9 /* RNCamera.xcodeproj */;
+				},
+				{
+					ProductGroup = A134813A224FD02600AC3FEE /* Products */;
+					ProjectRef = 9B2A935898B746CFA29BCEA8 /* RNSketchCanvas.xcodeproj */;
 				},
 				{
 					ProductGroup = 4403F391223DB2E70026EAF2 /* Products */;
@@ -1227,6 +1252,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		A134813E224FD02700AC3FEE /* libRNSketchCanvas.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSketchCanvas.a;
+			remoteRef = A134813D224FD02700AC3FEE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1392,12 +1424,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/**",
 				);
 				INFOPLIST_FILE = StoryTouchTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1422,12 +1456,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/**",
 				);
 				INFOPLIST_FILE = StoryTouchTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1453,6 +1489,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/**",
 				);
 				INFOPLIST_FILE = StoryTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1477,6 +1514,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/**",
 				);
 				INFOPLIST_FILE = StoryTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1507,11 +1545,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/**",
 				);
 				INFOPLIST_FILE = "StoryTouch-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1544,11 +1584,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/**",
 				);
 				INFOPLIST_FILE = "StoryTouch-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1580,11 +1622,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/**",
 				);
 				INFOPLIST_FILE = "StoryTouch-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1616,11 +1660,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/@terrylinla/react-native-sketch-canvas/ios/RNSketchCanvas/**",
 				);
 				INFOPLIST_FILE = "StoryTouch-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

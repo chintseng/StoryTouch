@@ -1,24 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, ImageBackground, TouchableWithoutFeedback, Animated } from 'react-native';
+import { Text, View } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import styles from './styles';
 import DefaultButton from '../../components/DefaultButton';
-import Circle from '../../components/Circle';
 
-export default class WelcomeScreen extends Component {
+export default class WelcomeScreen extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      pressing: false,
-      x: 0,
-      y: 0,
-      radius: 15,
-      radiusAnimate: new Animated.Value(15),
-    };
-    this.state.radiusAnimate.addListener(({ value }) => this.setState({ radius: value }));
+    Navigation.events().bindComponent(this);
   }
-
   onOpenCamera = () => {
     Navigation.push(this.props.componentId, {
       component: {
@@ -35,43 +26,49 @@ export default class WelcomeScreen extends Component {
         },
       },
     });
+    // Navigation.push(this.props.componentId, {
+    //   component: {
+    //     name: 'navigation.storyTouch.InteractScreen',
+    //     passProps: {
+    //       previewUri: 'https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_3119000/ff_3119748_full.jpg&w=900',
+    //     },
+    //     options: {
+    //       topBar: {
+    //         title: {
+    //           text: 'Preview',
+    //         },
+    //       },
+    //     },
+    //   },
+    // });
   }
-
-  handleImageLongPress = (event) => {
-    const { locationX: x, locationY: y } = event.nativeEvent;
-    this.setState({ x, y, pressing: true });
-    Animated.timing(this.state.radiusAnimate, {
-      toValue: 300,
-      duration: 3000,
-      useNativeDriver: true,
-    }).start();
-  }
-
-  handleImagePressOut = () => {
-    this.setState({ pressing: false });
-    this.state.radiusAnimate.setValue(15);
+  navigationButtonPressed = ({ buttonId }) => {
+    if (buttonId === 'historyButton') {
+      Navigation.showModal({
+        stack: {
+          children: [{
+            component: {
+              name: 'navigation.storyTouch.HistoryScreen',
+              options: {
+                topBar: {
+                  title: {
+                    text: 'History',
+                  },
+                },
+              },
+            },
+          }],
+        },
+      });
+    }
   }
 
   render() {
-    const {
-      x, y, radius, pressing,
-    } = this.state;
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback
-          onLongPress={this.handleImageLongPress}
-          onPressOut={this.handleImagePressOut}
-        >
-          <ImageBackground
-            style={{ width: '100%', height: 600 }}
-            source={{ url: 'https://resizer.otstatic.com/v2/photos/huge/25763125.jpg' }}
-          >
-            {pressing && <Circle top={y - radius} left={x - radius} radius={radius} />}
-          </ImageBackground>
-        </TouchableWithoutFeedback>
-        {/* <Text style={styles.welcome}>Welcome to StoryTouch!</Text>
+        <Text style={styles.welcome}>Welcome to StoryTouch!</Text>
         <Text style={styles.instructions}>To get started, click button</Text>
-        <DefaultButton icon="camera" onPress={this.onOpenCamera}>Camera</DefaultButton> */}
+        <DefaultButton icon="camera" onPress={this.onOpenCamera}>Camera</DefaultButton>
       </View>
     );
   }

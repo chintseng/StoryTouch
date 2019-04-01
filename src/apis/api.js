@@ -3,7 +3,7 @@
 export default class Api {
   constructor() {
     // this.url = `https://hoz8cvhdb1.execute-api.us-east-1.amazonaws.com/${process.env.REACT_APP_ENV}`;
-    this.url = 'http://34.73.72.176:5000';
+    this.url = 'http://35.227.183.188:5000';
   }
 
   // get = async (endpoint: string, token: string, params: any) => {
@@ -21,12 +21,13 @@ export default class Api {
   //   return parsedRes;
   // }
 
-  post = async (endpoint: string, body: any) => {
+  post = async (endpoint: string, body: any, contentType = 'application/json') => {
     const res = await fetch(`${this.url}${endpoint}`, {
       method: 'POST',
-      body: JSON.stringify(body),
+      body: contentType === 'application/json' ? JSON.stringify(body) : body,
       headers: {
-        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'Content-Type': contentType,
         // Authorization: token,
       },
     });

@@ -7,13 +7,16 @@
     "test": "jest"
   },
   "dependencies": {
+    "@terrylinla/react-native-sketch-canvas": "^0.8.0",
     "@types/lodash": "^4.14.123",
+    "form-data": "^2.3.3",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-native": "0.59.1",
     "react-native-camera": "^2.0.1",
     "react-native-elements": "^1.1.0",
     "react-native-navigation": "^2.13.2",
+    "react-native-storage": "^1.0.0",
     "react-native-vector-icons": "^6.4.1",
     "react-redux": "^6.0.1",
     "recompose": "^0.30.0",

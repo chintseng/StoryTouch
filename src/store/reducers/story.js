@@ -1,21 +1,28 @@
-import { STORY_SET_URL, STORY_SET_CAPTION } from '../actionTypes';
+import { STORY_SET_CAPTION, STORY_SET_NEW_CAPTION, STORY_SET_SELECTION_TYPE } from '../actionTypes';
 
 const initialState = {
-  imageUrl: '',
   caption: '',
+  filename: '',
+  selectionType: 'Draw',
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case STORY_SET_URL:
+    case STORY_SET_NEW_CAPTION:
       return {
         ...state,
-        imageUrl: action.imageUrl,
+        caption: action.caption,
+        filename: action.filename,
       };
     case STORY_SET_CAPTION:
       return {
         ...state,
         caption: action.caption,
+      };
+    case STORY_SET_SELECTION_TYPE:
+      return {
+        ...state,
+        selectionType: action.selectionType,
       };
     default:
       return state;

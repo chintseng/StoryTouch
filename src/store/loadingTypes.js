@@ -1,0 +1,2 @@
+export const STORY_CAPTIONING = 'STORY_CAPTIONING';
+

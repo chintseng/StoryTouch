@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { View, Image, TouchableWithoutFeedback, Dimensions, Text } from 'react-native';
+import { View, Image, Dimensions } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import { uploadImage, getStory } from '../../store/actions/story';
 import DefaultButton from '../../components/DefaultButton';
 import styles from './styles';
+import { STORY_CAPTIONING } from '../../store/loadingTypes';
 
 class Preview extends Component {
   state = {
@@ -14,7 +15,6 @@ class Preview extends Component {
   }
   componentDidMount() {
     const { width: screenWidth } = Dimensions.get('screen');
-    // console.log(Dimensions.get('screen'));
     Image.getSize(this.props.previewUri, (w, h) => {
       this.setState({ width: screenWidth, height: (screenWidth * h) / w });
     });
@@ -24,15 +24,14 @@ class Preview extends Component {
     const { locationX: x, locationY: y } = evt.nativeEvent;
     this.props.onGetStory(x / width, y / height);
   }
-  handleSubmitPress = () => {
+  handleSubmitPress = async () => {
     const { onUploadImage, previewUri } = this.props;
-    onUploadImage(previewUri);
+    await onUploadImage(previewUri);
     Navigation.push(this.props.componentId, {
       component: {
-        name: 'navigation.storyTouch.PreviewScreen',
+        name: 'navigation.storyTouch.InteractScreen',
         passProps: {
           previewUri: this.props.previewUri,
-          submitted: true,
         },
         options: {
           topBar: {
@@ -45,58 +44,40 @@ class Preview extends Component {
     });
   }
   render() {
-    const { caption, submitted } = this.props;
-    const content = submitted ? (
-      <View>
-        <TouchableWithoutFeedback onPress={this.handleImagePress}>
+    const { isLoading } = this.props;
+    return (
+      <View style={styles.container}>
+        <View>
           <Image
             style={{ width: this.state.width, height: this.state.height }}
             resizeMode="contain"
             source={{ uri: this.props.previewUri }}
           />
-        </TouchableWithoutFeedback>
-        <Text>{caption}</Text>
-      </View>
-    ) : (
-      <View>
-        <Image
-          style={{ width: this.state.width, height: this.state.height }}
-          resizeMode="contain"
-          source={{ uri: this.props.previewUri }}
-        />
-        <DefaultButton onPress={this.handleSubmitPress}>Upload</DefaultButton>
-      </View>
-    );
-    return (
-      <View style={styles.container}>
-        {content}
+          <DefaultButton loading={isLoading} onPress={this.handleSubmitPress}>Upload</DefaultButton>
+        </View>
       </View>
     );
   }
 }
 
-Preview.defaultProps = {
-  submitted: false,
-};
-
 Preview.propTypes = {
   previewUri: PropTypes.string.isRequired,
   onUploadImage: PropTypes.func.isRequired,
   onGetStory: PropTypes.func.isRequired,
-  caption: PropTypes.string.isRequired,
-  submitted: PropTypes.bool,
   componentId: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => {
   return {
     caption: state.story.caption,
+    isLoading: Boolean(state.ui.isLoading[STORY_CAPTIONING]),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onUploadImage: uri => dispatch(uploadImage(uri)),
+    onUploadImage: image => dispatch(uploadImage(image)),
     onGetStory: (x, y) => dispatch(getStory(x, y)),
   };
 };
