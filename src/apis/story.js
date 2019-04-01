@@ -16,12 +16,6 @@ export const uploadImageAPI = async (image) => {
 
 export const getStoryAPI = async (x, y, filename, width, height, radius = null) => {
   let endpoint;
-  if (!radius) {
-    endpoint = '/app_short_click';
-  } else if (typeof additional === 'number') {
-    endpoint = '/app_long_click';
-    data.radius = radius;
-  }
   const data = {
     coordinates: {
       x,
@@ -33,6 +27,12 @@ export const getStoryAPI = async (x, y, filename, width, height, radius = null) 
       height: `${height}px`,
     },
   };
+  if (!radius) {
+    endpoint = '/app_short_click';
+  } else {
+    endpoint = '/app_long_click';
+    data.radius = radius;
+  }
   return api.post(endpoint, data);
 };
 

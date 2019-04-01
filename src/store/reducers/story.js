@@ -3,7 +3,7 @@ import { STORY_SET_CAPTION, STORY_SET_NEW_CAPTION, STORY_SET_SELECTION_TYPE } fr
 const initialState = {
   caption: '',
   filename: '',
-  selectionType: 'Draw',
+  selectionType: 'Short Click',
 };
 
 const reducer = (state = initialState, action) => {

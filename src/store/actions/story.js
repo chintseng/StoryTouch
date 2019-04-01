@@ -40,7 +40,6 @@ export const getStory = (x, y, width, height, additional = null) => {
       } else {
         response = await getStoryAPI(x, y, filename, width, height, additional);
       }
-      console.log(response);
       await storage.save({
         key: 'history',
         id: response.filename,
@@ -55,6 +54,7 @@ export const getStory = (x, y, width, height, additional = null) => {
       });
       dispatch(uiStopLoading(STORY_CAPTIONING));
     } catch (e) {
+      console.log(e);
       dispatch(uiStopLoading(STORY_CAPTIONING));
     }
   };
