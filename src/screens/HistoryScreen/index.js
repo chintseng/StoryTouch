@@ -44,7 +44,6 @@ class HistoryScreen extends React.PureComponent {
     if (buttonId === 'closeButton') {
       Navigation.dismissModal(this.props.componentId);
     } else if (buttonId === 'clearButton') {
-      await this.props.onClearHistory();
       Alert.alert(
         'Are you sure?',
         'You can not redo this action',
@@ -53,7 +52,13 @@ class HistoryScreen extends React.PureComponent {
             text: 'Cancel',
             style: 'cancel',
           },
-          { text: 'OK', onPress: () => this.setState({ history: [] }) },
+          {
+            text: 'OK',
+            onPress: async () => {
+              await this.props.onClearHistory();
+              this.setState({ history: [] });
+            },
+          },
         ],
       );
     }
