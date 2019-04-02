@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Alert } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import { ListItem } from 'react-native-elements';
 import { connect } from 'react-redux';
 // import styles from './styles';
-import { getHistory } from '../../store/actions/story';
+import { getHistory, clearHistory } from '../../store/actions/story';
 
 class HistoryScreen extends React.PureComponent {
   static options() {
@@ -16,6 +16,12 @@ class HistoryScreen extends React.PureComponent {
           {
             id: 'closeButton',
             text: 'Close',
+          },
+        ],
+        rightButtons: [
+          {
+            id: 'clearButton',
+            text: 'Clear',
           },
         ],
       },
@@ -34,9 +40,22 @@ class HistoryScreen extends React.PureComponent {
     console.log(history);
     this.setState({ history });
   }
-  navigationButtonPressed = ({ buttonId }) => {
+  navigationButtonPressed = async ({ buttonId }) => {
     if (buttonId === 'closeButton') {
       Navigation.dismissModal(this.props.componentId);
+    } else if (buttonId === 'clearButton') {
+      await this.props.onClearHistory();
+      Alert.alert(
+        'Are you sure?',
+        'You can not redo this action',
+        [
+          {
+            text: 'Cancel',
+            style: 'cancel',
+          },
+          { text: 'OK', onPress: () => this.setState({ history: [] }) },
+        ],
+      );
     }
   }
   render() {
@@ -64,11 +83,13 @@ class HistoryScreen extends React.PureComponent {
 HistoryScreen.propTypes = {
   onGetHistory: PropTypes.func.isRequired,
   componentId: PropTypes.string.isRequired,
+  onClearHistory: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetHistory: () => dispatch(getHistory()),
+    onClearHistory: () => dispatch(clearHistory()),
   };
 };
 

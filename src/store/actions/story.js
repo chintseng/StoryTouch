@@ -72,10 +72,12 @@ export const setSelectionType = (type) => {
 export const getHistory = () => {
   return async () => {
     // await storage.clearMapForKey('history');
-    return fetchHistory();
+    return storage.getAllDataForKey('history');
   };
 };
 
-const fetchHistory = async () => {
-  return storage.getAllDataForKey('history');
+export const clearHistory = () => {
+  return async () => {
+    return storage.clearMapForKey('history');
+  };
 };
